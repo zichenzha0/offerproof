@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "OfferProof",
+  "version": "1.0.0",
+  "description": "Verify whether a company is real before you apply or reply.",
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "host_permissions": ["http://localhost:8000/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "exclude_matches": ["http://localhost:8000/*", "http://127.0.0.1:8000/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "OfferProof"
+  }
+}
