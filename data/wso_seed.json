@@ -1,0 +1,185 @@
+{
+  "_meta": {
+    "description": "Seeded Wall Street Oasis (WSO) intern-intelligence records for the OfferProof demo. Offline fallback for the WSO ingestion adapter. Drop this at data/wso_seed.json. Records are hand-authored to mirror WSO forum voice; source_url values are illustrative and should be treated as demo citations, not live links.",
+    "schema_version": 1,
+    "record_fields": [
+      "company", "role", "source_url", "quote", "sentiment", "comp",
+      "hours_per_week", "work_type", "return_offer", "intern_to_ft_ratio",
+      "culture_flags", "date"
+    ],
+    "work_type_values": ["modeling", "sourcing", "cold_calling", "admin", "other"],
+    "sentiment_values": ["positive", "mixed", "negative"]
+  },
+
+  "companies": [
+    {
+      "company": "XYZ Capital",
+      "aliases": ["xyz-capital", "xyz cap", "XYZ Capital Partners", "XYZ Capital LLC"],
+      "domain": "xyzcapital.com",
+      "demo_slug": "xyz-capital",
+      "sector": "Boutique Investment Banking / Advisory",
+      "records": [
+        {
+          "company": "XYZ Capital",
+          "role": "Investment Banking Summer Analyst (Intern)",
+          "source_url": "https://www.wallstreetoasis.com/forum/investment-banking/xyz-capital-summer-analyst-review",
+          "quote": "Went in expecting modeling and deal exposure. Reality was ~90% cold calling and building target lists in Excel. Touched maybe one real LBO the entire summer. The analysts are sharp but there are three of them running everything.",
+          "sentiment": "negative",
+          "comp": "$0 (unpaid, class credit only)",
+          "hours_per_week": 72,
+          "work_type": "cold_calling",
+          "return_offer": false,
+          "intern_to_ft_ratio": "18:3",
+          "culture_flags": ["misrepresented role", "understaffed", "no mentorship", "unpaid"],
+          "date": "2024-08-19"
+        },
+        {
+          "company": "XYZ Capital",
+          "role": "Off-Cycle Investment Banking Intern",
+          "source_url": "https://www.wallstreetoasis.com/forum/investment-banking/xyz-capital-off-cycle-thread",
+          "quote": "18 interns, 3 full-time bankers. Do the math on how much actual mentorship you get. It's a sourcing sweatshop with a nice website. That said, the name did get me a first-round at a lower-MM shop, so not totally worthless.",
+          "sentiment": "mixed",
+          "comp": "$0 (unpaid)",
+          "hours_per_week": 68,
+          "work_type": "sourcing",
+          "return_offer": false,
+          "intern_to_ft_ratio": "18:3",
+          "culture_flags": ["understaffed", "resume value", "unpaid", "long hours"],
+          "date": "2024-03-11"
+        },
+        {
+          "company": "XYZ Capital",
+          "role": "Investment Banking Intern",
+          "source_url": "https://www.wallstreetoasis.com/forum/investment-banking/is-xyz-capital-legit",
+          "quote": "For the record the FIRM is real — they've closed a couple of legit sell-side deals and the founder actually worked at a real bank. The problem is the INTERNSHIP, not the shop. Two very different questions.",
+          "sentiment": "mixed",
+          "comp": "$0 (unpaid)",
+          "hours_per_week": 65,
+          "work_type": "sourcing",
+          "return_offer": "na",
+          "intern_to_ft_ratio": "18:3",
+          "culture_flags": ["legit firm", "misrepresented role"],
+          "date": "2024-06-02"
+        },
+        {
+          "company": "XYZ Capital",
+          "role": "Summer Analyst",
+          "source_url": "https://www.wallstreetoasis.com/forum/investment-banking/xyz-capital-hours-comp",
+          "quote": "70+ hour weeks, no stipend, and they dangle a 'possible return offer' the whole summer that basically nobody gets. Out of my class of ~18 I know of zero return offers. Would not do it again unless you have literally nothing else.",
+          "sentiment": "negative",
+          "comp": "$0 (unpaid)",
+          "hours_per_week": 74,
+          "work_type": "cold_calling",
+          "return_offer": false,
+          "intern_to_ft_ratio": "18:3",
+          "culture_flags": ["unpaid", "long hours", "low return rate", "dangled return offer"],
+          "date": "2023-09-01"
+        },
+        {
+          "company": "XYZ Capital",
+          "role": "Investment Banking Intern",
+          "source_url": "https://www.wallstreetoasis.com/forum/investment-banking/xyz-capital-worth-it-for-freshman",
+          "quote": "Honestly if you're a freshman/sophomore with no other offer, the brand line on your resume is fine and it's easy to get. Just go in knowing it's cold calling, not banking, and it's unpaid. Set expectations accordingly.",
+          "sentiment": "mixed",
+          "comp": "$0 (unpaid)",
+          "hours_per_week": 60,
+          "work_type": "cold_calling",
+          "return_offer": "na",
+          "intern_to_ft_ratio": "18:3",
+          "culture_flags": ["resume value", "unpaid", "easy to get", "underclassman friendly"],
+          "date": "2024-11-20"
+        }
+      ]
+    },
+
+    {
+      "company": "Kalshi",
+      "aliases": ["kalshi", "Kalshi Inc", "Kalshi Exchange"],
+      "domain": "kalshi.com",
+      "demo_slug": "kalshi",
+      "sector": "Regulated Prediction Market / Fintech",
+      "records": [
+        {
+          "company": "Kalshi",
+          "role": "Software Engineer Intern, Product",
+          "source_url": "https://www.wallstreetoasis.com/forum/technology/kalshi-swe-intern-review",
+          "quote": "Real engineering work from week one — shipped a feature to prod that actual users touched. Paired with a senior eng who genuinely mentored me. Comp was competitive with the big tech internships. Would 100% recommend.",
+          "sentiment": "positive",
+          "comp": "$9,500/mo",
+          "hours_per_week": 45,
+          "work_type": "other",
+          "return_offer": true,
+          "intern_to_ft_ratio": "na",
+          "culture_flags": ["real work", "strong mentorship", "paid well", "ships to prod"],
+          "date": "2024-08-30"
+        },
+        {
+          "company": "Kalshi",
+          "role": "Software Engineer Intern",
+          "source_url": "https://www.wallstreetoasis.com/forum/technology/kalshi-intern-return-offers",
+          "quote": "Posted through their official Ashby page (jobs.ashbyhq.com/kalshi), clean process, no weirdness. Most of my intern class got return offers. Fast-paced but you learn a ton.",
+          "sentiment": "positive",
+          "comp": "$9,000/mo",
+          "hours_per_week": 50,
+          "work_type": "other",
+          "return_offer": true,
+          "intern_to_ft_ratio": "na",
+          "culture_flags": ["legit process", "high return rate", "steep learning curve"],
+          "date": "2024-09-15"
+        },
+        {
+          "company": "Kalshi",
+          "role": "Quant / Trading Intern",
+          "source_url": "https://www.wallstreetoasis.com/forum/hedge-fund/kalshi-quant-intern",
+          "quote": "Fair warning it's a startup so hours can spike near launches, but the work is legit quant/market work and they pay real money for it. Not a sourcing/admin thing at all.",
+          "sentiment": "mixed",
+          "comp": "$10,000/mo",
+          "hours_per_week": 55,
+          "work_type": "modeling",
+          "return_offer": true,
+          "intern_to_ft_ratio": "na",
+          "culture_flags": ["real work", "paid well", "startup hours"],
+          "date": "2024-07-22"
+        }
+      ]
+    },
+
+    {
+      "company": "Apex Innovations Global Ltd.",
+      "aliases": ["apex-innovations", "Apex Innovations", "Apex Innovations Global", "Apex Global"],
+      "domain": "apexinnovations.io",
+      "demo_slug": "apex-innovations",
+      "sector": "Unclear / Generic 'Global' Holdings",
+      "records": [
+        {
+          "company": "Apex Innovations Global Ltd.",
+          "role": "Senior Full-Stack Engineer (posting)",
+          "source_url": "https://www.wallstreetoasis.com/forum/off-topic/apex-innovations-ghost-job",
+          "quote": "This exact 'Senior Full-Stack' req has been up for 16+ months. Applied twice, got the same generic auto-reply both times, never a human. Classic evergreen ghost posting to farm resumes.",
+          "sentiment": "negative",
+          "comp": "not disclosed",
+          "hours_per_week": null,
+          "work_type": "other",
+          "return_offer": "na",
+          "intern_to_ft_ratio": "na",
+          "culture_flags": ["ghost job", "no response", "stale posting", "resume harvesting"],
+          "date": "2024-05-04"
+        },
+        {
+          "company": "Apex Innovations Global Ltd.",
+          "role": "Various (pipeline)",
+          "source_url": "https://www.wallstreetoasis.com/forum/off-topic/apex-innovations-anyone-actually-work-here",
+          "quote": "Has ANYONE on here actually worked at Apex Innovations Global? Every 'employee' review reads like it was written by the same person. No real deal announcements, no press, generic stock-photo careers page. Something's off.",
+          "sentiment": "negative",
+          "comp": "not disclosed",
+          "hours_per_week": null,
+          "work_type": "other",
+          "return_offer": "na",
+          "intern_to_ft_ratio": "na",
+          "culture_flags": ["phantom company", "fake reviews", "no footprint"],
+          "date": "2024-10-27"
+        }
+      ]
+    }
+  ]
+}

@@ -32,6 +32,7 @@ from ollama_agent import (
     run_copilot,
 )
 from url_parser import parse_target_url
+from wso_source import build_intern_intel
 
 load_dotenv()
 
@@ -121,6 +122,15 @@ class AuditRequest(BaseModel):
     jobUrl: str = ""
     is_company_only: bool = False
     isCompanyOnly: bool = False
+    company_name: str = ""
+    companyName: str = ""
+
+
+class InternIntelRequest(BaseModel):
+    company_name: str = ""
+    companyName: str = ""
+    text: str = ""
+    filters: dict[str, Any] | None = None
 
 
 class ParseUrlRequest(BaseModel):
@@ -1063,7 +1073,34 @@ async def audit(body: AuditRequest):
         job_url=job_url,
     )
     result["engine"] = mode
+    # Candidate-side intern intelligence (WSO forum layer). Never blocks the audit.
+    try:
+        result["intern_intel"] = build_intern_intel(
+            company_name=body.company_name or body.companyName,
+            text=content,
+            company_legitimacy_score=result.get("ghost_score"),
+            company_trust_level=result.get("trust_level", ""),
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Intern intel failed: %s", exc)
+        result["intern_intel"] = {"matched": False, "source": "WSO forum", "reviews": [], "sources": []}
     return JSONResponse(result)
+
+
+@app.post("/api/intern-intel")
+async def intern_intel(body: InternIntelRequest):
+    try:
+        intel = build_intern_intel(
+            company_name=body.company_name or body.companyName,
+            text=body.text,
+            filters=body.filters,
+        )
+        return JSONResponse(intel)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Intern intel endpoint failed: %s", exc)
+        return JSONResponse(
+            {"matched": False, "source": "WSO forum", "reviews": [], "sources": []},
+        )
 
 
 @app.get("/demo/{slug}", response_class=HTMLResponse)

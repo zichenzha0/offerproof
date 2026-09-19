@@ -1,5 +1,50 @@
 export type VerificationStatus = 'VERIFIED' | 'UNVERIFIED' | 'FLAGGED' | 'NOT_APPLICABLE';
 
+export interface InternIntelVector {
+  key: string;
+  label: string;
+  score: number; // 0-100, higher = worse for the candidate
+  level: string; // 'Low risk' | 'Moderate' | 'Elevated' | 'High risk'
+  evidence: string;
+  weight: number;
+}
+
+export interface InternIntelReview {
+  quote: string;
+  role: string;
+  sentiment: 'positive' | 'mixed' | 'negative' | string;
+  comp: string;
+  hours_per_week: number | null;
+  work_type: string;
+  return_offer: boolean | string | null;
+  culture_flags: string[];
+  date: string;
+  source_url: string;
+}
+
+export interface InternIntelStats {
+  review_count: number;
+  avg_hours_per_week: number | null;
+  unpaid_share: number | null;
+  intern_to_ft_ratio: string | null;
+  return_offer_rate: number | null;
+}
+
+export interface InternIntel {
+  matched: boolean;
+  source: string;
+  company?: string;
+  sector?: string;
+  message?: string;
+  role_risk_score?: number;
+  risk_level?: string;
+  vectors?: InternIntelVector[];
+  stats?: InternIntelStats;
+  reviews: InternIntelReview[];
+  sources: string[];
+  verdict?: string;
+}
+
 export interface VerificationItem {
   status: VerificationStatus;
   details: string;
@@ -44,6 +89,7 @@ export interface RecruitmentAuditResult {
   ghost_score: number;
   trust_level: 'Safe' | 'Low Risk' | 'Caution' | 'Suspicious' | 'Danger' | string;
   is_company_only?: boolean;
+  intern_intel?: InternIntel;
   target_company_url?: string;
   target_job_url?: string;
   five_blocks?: ScreenshotFiveBlocks;

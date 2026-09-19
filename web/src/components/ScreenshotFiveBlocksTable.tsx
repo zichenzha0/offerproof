@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScreenshotFiveBlocks } from '../types';
 import { ExternalLink } from 'lucide-react';
+import { badgeStyle, evidenceStatus } from '../statusColors';
 
 interface ScreenshotFiveBlocksTableProps {
   fiveBlocks?: ScreenshotFiveBlocks;
@@ -108,7 +109,11 @@ export const ScreenshotFiveBlocksTable: React.FC<ScreenshotFiveBlocksTableProps>
                 <div className="text-[16px] font-semibold text-[var(--color-ink)]">{row.title}</div>
                 <div className="label-text text-[var(--color-muted)] mt-1">{row.hint}</div>
               </div>
-              <div className="label-text text-[var(--color-ink)] pt-0.5">{item.result}</div>
+              <div className="pt-0.5">
+                <span className="badge" style={badgeStyle(evidenceStatus(item.result, row.key))}>
+                  {item.result}
+                </span>
+              </div>
               <p className="body-text text-[var(--color-muted)] m-0">{item.evidence}</p>
             </div>
           );

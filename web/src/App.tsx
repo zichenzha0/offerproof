@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-do
 import { PresetSample, RecruitmentAuditResult } from './types';
 import { ScoreGauge } from './components/ScoreGauge';
 import { ScreenshotFiveBlocksTable } from './components/ScreenshotFiveBlocksTable';
+import { InternIntelligence } from './components/InternIntelligence';
 import {
   getCachedReport,
   normalizeTargetUrl,
@@ -89,6 +90,7 @@ export default function App() {
         body: JSON.stringify({
           text: textToAnalyze,
           category: jobToAudit.category.toLowerCase(),
+          company_name: jobToAudit.company,
         }),
         signal,
       });
@@ -285,6 +287,13 @@ export default function App() {
                     companyUrl={selectedJob.companyUrl}
                     jobUrl={selectedJob.jobUrl}
                     isCompanyOnly={selectedJob.isCompanyOnly || auditResult.is_company_only}
+                  />
+                )}
+                {auditResult.intern_intel && (
+                  <InternIntelligence
+                    intel={auditResult.intern_intel}
+                    companyRiskScore={auditResult.ghost_score}
+                    companyTrustLevel={auditResult.trust_level}
                   />
                 )}
               </>

@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-page: #f5f8fc;
+  --color-page: #ffffff;
   --color-card: #ffffff;
   --color-ink: #0f172a;
   --color-muted: #64748b;
@@ -10,6 +10,29 @@
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
   --radius-card: 14px;
+
+  /* Evidence-based status system.
+     green = strong · blue = mixed/neutral · slate = limited/unknown
+     amber = caution ("review carefully") · red = high concern only */
+  --status-strong-bg: #dcfce7;
+  --status-strong-text: #166534;
+  --status-strong-border: #22c55e;
+
+  --status-mixed-bg: #dbeafe;
+  --status-mixed-text: #1e40af;
+  --status-mixed-border: #3b82f6;
+
+  --status-limited-bg: #f1f5f9;
+  --status-limited-text: #475569;
+  --status-limited-border: #94a3b8;
+
+  --status-caution-bg: #fef3c7;
+  --status-caution-text: #92400e;
+  --status-caution-border: #f59e0b;
+
+  --status-high-bg: #fee2e2;
+  --status-high-text: #991b1b;
+  --status-high-border: #ef4444;
 }
 
 html,
@@ -33,6 +56,47 @@ body {
   background: var(--color-card);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-card);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* Evidence badge — small, calm, border-outlined status pill. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.badge-strong {
+  background: var(--status-strong-bg);
+  color: var(--status-strong-text);
+  border: 1px solid var(--status-strong-border);
+}
+.badge-mixed {
+  background: var(--status-mixed-bg);
+  color: var(--status-mixed-text);
+  border: 1px solid var(--status-mixed-border);
+}
+.badge-limited {
+  background: var(--status-limited-bg);
+  color: var(--status-limited-text);
+  border: 1px solid var(--status-limited-border);
+}
+.badge-caution {
+  background: var(--status-caution-bg);
+  color: var(--status-caution-text);
+  border: 1px solid var(--status-caution-border);
+}
+.badge-high {
+  background: var(--status-high-bg);
+  color: var(--status-high-text);
+  border: 1px solid var(--status-high-border);
 }
 
 .hero-title {
