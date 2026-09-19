@@ -1,0 +1,6 @@
+{
+  "name": "OfferProof",
+  "description": "OfferProof: Zero-Trust career copilot, ghost job radar, and recruitment offer verification middleware.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
